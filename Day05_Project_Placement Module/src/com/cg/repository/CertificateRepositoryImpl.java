@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.repository;
 
 import javax.persistence.EntityManager;
 
@@ -30,14 +30,19 @@ public class CertificateRepositoryImpl implements ICertificateRepository
 		Certificate certificate = em.find(Certificate.class, id);
 		return certificate;
 	}
-
+/*
 	@Override
 	public Certificate deleteCertificate(int id) {
 		Certificate certificate = em.find(Certificate.class, id);
 		em.remove(certificate);
 		return certificate;
 	}
-
+*/
+	@Override
+	public Certificate deleteCertificate(int id) {
+		em.remove(id);
+		return null;
+	/*	
 	@Override
 	public void beginTransaction() {
 		em.getTransaction().begin();
@@ -47,5 +52,20 @@ public class CertificateRepositoryImpl implements ICertificateRepository
 	public void commitTransaction() {
 		em.getTransaction().commit();
 	}
+	*/
+	
+	}
+
+	@Override
+	public void beginTransaction() {
+		em.getTransaction().begin();
+		
+	}
+	
+	@Override
+	public void commitTransaction() {
+		em.getTransaction().commit();
+	
+}
 
 }

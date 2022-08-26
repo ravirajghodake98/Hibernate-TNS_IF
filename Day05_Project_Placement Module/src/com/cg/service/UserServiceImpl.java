@@ -1,8 +1,8 @@
 package com.cg.service;
 
-import com.cg.dao.IUserDao;
-import com.cg.dao.UserDaoImpl;
 import com.cg.entities.User;
+import com.cg.repository.IUserDao;
+import com.cg.repository.UserDaoImpl;
 
 public class UserServiceImpl implements IUserService
 {

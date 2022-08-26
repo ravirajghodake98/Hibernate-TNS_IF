@@ -1,7 +1,7 @@
 package com.cg.service;
 import com.cg.entities.College;
-import com.cg.dao.CollegeRepositoryImpl;
-import com.cg.dao.ICollegeRepository;
+import com.cg.repository.CollegeRepositoryImpl;
+import com.cg.repository.ICollegeRepository;
 
 public class CollegeServiceImpl implements ICollegeService 
 {

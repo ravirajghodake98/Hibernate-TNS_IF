@@ -1,4 +1,4 @@
-package com.cg.dao;
+package com.cg.repository;
 
 import com.cg.entities.Certificate;
 

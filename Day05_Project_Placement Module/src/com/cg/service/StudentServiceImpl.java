@@ -1,17 +1,22 @@
 package com.cg.service;
 
-import com.cg.dao.StudentDao;
-import com.cg.dao.StudentDaoImpl;
+import com.cg.entities.Certificate;
 import com.cg.entities.Student;
+import com.cg.repository.CertificateRepositoryImpl;
+import com.cg.repository.ICertificateRepository;
+import com.cg.repository.IStudentRepository;
+import com.cg.repository.IStudentRepositoryImpl;
 
 public class StudentServiceImpl implements StudentService {
 	
-	private StudentDao dao;
-	
+	private IStudentRepository dao;
+	private ICertificateRepository cao;
 
 	public StudentServiceImpl() {
-		dao = new StudentDaoImpl();
+		dao = new IStudentRepositoryImpl();
+		cao = new CertificateRepositoryImpl();
 	}
+
 
 	@Override
 	public Student addStudent(Student std) {
@@ -21,6 +26,7 @@ public class StudentServiceImpl implements StudentService {
 		return std;
 	}
 
+
 	@Override
 	public Student updateStudent(Student std) {
 		dao.beginTransaction();
@@ -29,43 +35,45 @@ public class StudentServiceImpl implements StudentService {
 		return std;
 	}
 
+
 	@Override
 	public Student searchStudentByID(int Id) {
 		Student std= dao.searchStudentByID(Id);
 		return std;
 	}
 
+
 	@Override
-	public Student searchStudentByHALLTICKET(int HALLTICKETD) {
-		Student std=  dao.searchStudentByHallticket(HALLTICKETD);
+	public Student searchStudentByHALLTICKET(int HALLTICKET) {
+		Student std=  dao.searchStudentByHallticket(HALLTICKET);
 		return std;
 	}
 
+
 	@Override
-	public Student addCertificate(Student std) {
+	public boolean addCertificate(Certificate certificate) {
 		dao.beginTransaction();
-		dao.addCertificate(std);
+		cao.addCertificate(certificate);
 		dao.commitTransaction();
-		return std;
+		return true;
 	}
+
 
 	@Override
-	public Student updateCertificate(Student std) {
+	public boolean updateCertificate(Certificate certificate) {
 		dao.beginTransaction();
-		dao.addCertificate(std);
+		cao.updateCertificate(certificate);
 		dao.commitTransaction();
-		return std;
+		return true;
 	}
+
 
 	@Override
-	public Student deleteStudent(Student std) {
+	public boolean deleteStudent(int id) {
 		dao.beginTransaction();
-		dao.deleteStudent(std);
+		boolean res = dao.deleteStudent(id);
 		dao.commitTransaction();
-		return std;
-		
+		return res;
 	}
-
-	
 
 }

@@ -2,8 +2,8 @@ package com.cg.service;
 
 import java.util.Scanner;
 
-import com.cg.dao.AdminRepositoryImp;
 import com.cg.entities.Admin;
+import com.cg.repository.AdminRepositoryImp;
 
 public class AdminServiceImp implements IAdminService{
 private AdminRepositoryImp dao;

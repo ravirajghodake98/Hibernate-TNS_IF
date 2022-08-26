@@ -1,8 +1,8 @@
 package com.cg.service;
 
-import com.cg.dao.IPlacementRepository;
-import com.cg.dao.IPlacementRepositoryImpl;
 import com.cg.entities.Placement;
+import com.cg.repository.IPlacementRepository;
+import com.cg.repository.IPlacementRepositoryImpl;
 
 public class IPlacementServiceImpl implements IPlacementService {
 
